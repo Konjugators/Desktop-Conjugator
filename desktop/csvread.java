@@ -14,7 +14,7 @@ interface csvread{
 
 public class csvread{ //implements csvread{
     public static ArrayList<verb> csvverbs = new ArrayList<verb>();
-    public static void readFile() throws FileNotFoundException{
+    public static ArrayList<verb> readFile() throws FileNotFoundException{
         Scanner s;
         File f = new File(new File("desktop/verbs.csv").getAbsolutePath());
         s = new Scanner(f).useDelimiter(",");
@@ -33,12 +33,7 @@ public class csvread{ //implements csvread{
             lineNumber++;
         }
         s.close();
+        return csvverbs;
     }
 
-    public static void main(String[] args) throws FileNotFoundException{
-        csvread.readFile();
-        for (verb z : csvverbs){
-            z.info();
-        }
-    }
 }
