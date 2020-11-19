@@ -2,6 +2,8 @@ import desktop.*;
 
 class Main{
     public static void main(String[] args){
-        System.out.println("Testing.");
+        //verb machen = new verb("machen");
+        //System.out.println(machen.getInfinitive());
+        //csvread.readFile();
     }
 }
