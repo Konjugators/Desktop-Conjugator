@@ -13,14 +13,15 @@ interface csvread{
 */
 
 public class csvread{ //implements csvread{
-    public static ArrayList<verb> csvverbs = new ArrayList<verb>();
-    public static ArrayList<verb> readFile() throws FileNotFoundException{
+    private static ArrayList<verb> csvverbs = new ArrayList<verb>();
+    
+    public static void readFile() throws FileNotFoundException{
         Scanner s;
         File f = new File(new File("desktop/verbs.csv").getAbsolutePath());
         s = new Scanner(f).useDelimiter(",");
 
         int lineNumber = 1;
-        while(s.hasNextLine() && lineNumber < 4){
+        while(s.hasNextLine()){//} && lineNumber < 4){
             String line = s.nextLine();
             String[] conjugs = line.split(",");
             for (int i = 0; i < conjugs.length; i++){
@@ -33,6 +34,9 @@ public class csvread{ //implements csvread{
             lineNumber++;
         }
         s.close();
+    }
+
+    public static ArrayList<verb> getVerbs() throws FileNotFoundException{
         return csvverbs;
     }
 
