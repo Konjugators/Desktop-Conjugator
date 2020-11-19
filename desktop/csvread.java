@@ -1,5 +1,5 @@
 package desktop;
-import desktop.*;
+// import desktop.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class csvread{ //implements csvread{
         s = new Scanner(f).useDelimiter(",");
 
         int lineNumber = 1;
-        while(s.hasNextLine() && lineNumber < 10){
+        while(s.hasNextLine() && lineNumber < 4){
             String line = s.nextLine();
             String[] conjugs = line.split(",");
             for (int i = 0; i < conjugs.length; i++){
@@ -37,5 +37,8 @@ public class csvread{ //implements csvread{
 
     public static void main(String[] args) throws FileNotFoundException{
         csvread.readFile();
+        for (verb z : csvverbs){
+            z.info();
+        }
     }
 }

@@ -22,4 +22,10 @@ public class verb {
     public ArrayList<String> getConjugations(){
         return this.conjugations;
     }
+
+    public void info(){
+        System.out.println( "For the infinitive: " +
+        this.infinitive + ", the conjugation list is: "
+        +this.conjugations.toString() );
+    }
 }
