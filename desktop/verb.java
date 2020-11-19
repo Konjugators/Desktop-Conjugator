@@ -3,6 +3,10 @@ package desktop;
 import java.util.ArrayList;
 import java.util.Collections;
 
+interface Innerverb {
+    
+}
+
 public class verb {
     private String infinitive;
     private ArrayList<String> conjugations = new ArrayList<String>();
@@ -63,10 +67,6 @@ public class verb {
         System.out.println( "For the infinitive: " +
         this.infinitive + ", the conjugation list is: "
         +this.conjugations.toString() );
-    }
-
-    public static String pronounConjugate(ArrayList<String> list, String prounoun){
-        return "placeholder";
     }
 
 }
