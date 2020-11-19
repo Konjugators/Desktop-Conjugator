@@ -1,5 +1,7 @@
 package desktop;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class verb {
     private String infinitive;
@@ -9,8 +11,8 @@ public class verb {
         this.infinitive = inf;
     }
     
-    public void setConjugations(ArrayList<String> conj){
-        this.conjugations.addAll(conj);
+    public void setConjugations(String[] conj){
+        Collections.addAll(this.conjugations, conj);
     }
 
     public String getInfinitive(){
