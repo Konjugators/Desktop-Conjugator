@@ -23,6 +23,12 @@ public class verb {
         return this.conjugations;
     }
 
+    public ArrayList<String> getPresentConjugations(){
+        ArrayList<String> PresentConjugations;
+        PresentConjugations = new ArrayList<String>(conjugations.subList(0, 6));
+        return PresentConjugations;
+    }
+
     public void info(){
         System.out.println( "For the infinitive: " +
         this.infinitive + ", the conjugation list is: "

@@ -20,7 +20,7 @@ public class csvread{ //implements csvread{
         File f = new File(new File("desktop/verbs.csv").getAbsolutePath());
         s = new Scanner(f).useDelimiter(",");
 
-        int lineNumber = 1;
+
         while(s.hasNextLine()){//} && lineNumber < 4){
             String line = s.nextLine();
             String[] conjugs = line.split(",");
@@ -31,7 +31,6 @@ public class csvread{ //implements csvread{
             temp.setConjugations(Arrays.copyOfRange(conjugs, 1, conjugs.length));
             csvverbs.add(temp);
             //System.out.println("line " + lineNumber + " :" + conjugs);
-            lineNumber++;
         }
         s.close();
     }

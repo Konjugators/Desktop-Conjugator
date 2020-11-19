@@ -5,22 +5,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class verbFind {
-    private static HashMap<String, ArrayList<String>> verbInterfaceMap;
+    private static HashMap<String, verb> verbInterfaceMap
+    = new HashMap<String, verb>();
     
-    public static ArrayList<String> findIndex(String v){
+    public static verb findIndex(String v){
         return verbInterfaceMap.get(v);
     }
     
     public static void verbDict() throws FileNotFoundException{
-        verbInterfaceMap = new HashMap<String, ArrayList<String>>();
         csvread.readFile();
         ArrayList<verb> csvverbs = csvread.getVerbs();
         for (verb z : csvverbs){
-            verbInterfaceMap.put(z.getInfinitive(), z.getConjugations());
+            verbInterfaceMap.put(z.getInfinitive(), z);
         }
     }
 
-    public static HashMap<String, ArrayList<String>> getVerbInterfaceMap(){
+    public static HashMap<String, verb> getVerbInterfaceMap(){
         return verbInterfaceMap;
     }
 }
