@@ -6,6 +6,6 @@ import desktop.verbFind;
 class Main {
     public static void main(String[] args) throws FileNotFoundException {
         verbFind.verbDict();
-        verbFind.getVerbInterfaceMap().get("Infinitive").getPresentConjugations();
+        verbFind.getVerbInterfaceMap().get("Infinitive").info();
     }
 }
