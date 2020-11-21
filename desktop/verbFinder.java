@@ -67,3 +67,5 @@ public class verbFinder{
         System.out.println(verbFinder.verbs.get(z));
     }
 }
+
+//TODO Conjugation indices must be marked
