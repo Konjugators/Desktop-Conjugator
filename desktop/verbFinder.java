@@ -2,11 +2,13 @@ package desktop;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
+// import java.util.Arrays;
 import java.util.Scanner;
 
 public class verbFinder{
+    
     public static ArrayList<String> Infinitives;
     public static ArrayList<ArrayList<String>> verbs;
     public static void readFile() throws FileNotFoundException{
@@ -51,12 +53,14 @@ public class verbFinder{
         else if (temp > 'ü' && temp <= 'z'){
             return Infinitives.subList(5817, Infinitives.size()).indexOf(str)+5817;
         }
-        else{return -1;}
+        else{
+            return -1;
+        }
     }
 
     public static void main(String[] args) throws FileNotFoundException {
         verbFinder.readFile();
-        String arg = "aalen";
+        String arg = "fahren";
         int z = verbFinder.linBinSearch(arg);
         System.out.println(z);
         System.out.println(verbFinder.Infinitives.get(z));
