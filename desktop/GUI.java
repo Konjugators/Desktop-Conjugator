@@ -1,13 +1,17 @@
 package desktop;
 
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.color.*;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,14 +19,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.border.Border;
 
 class ButtonListener implements ActionListener {
     public String clickedTense;
     public int clickedPronoun;
+    Border blackline;
     ButtonListener() {
+        blackline = BorderFactory.createLineBorder(Color.BLACK);
     }
 
-    public static String getTenseClicked(){
+    public static String getTenseClicked() {
         for (Enumeration<AbstractButton> buttons = GUI.tenseGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
             if (button.isSelected()) {
@@ -32,7 +40,7 @@ class ButtonListener implements ActionListener {
         return "";
     }
 
-    public static String getPronounClicked(){
+    public static String getPronounClicked() {
         for (Enumeration<AbstractButton> buttons = GUI.pronounGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
             if (button.isSelected()) {
@@ -42,36 +50,40 @@ class ButtonListener implements ActionListener {
         return "";
     }
 
-    public static void changeGBCGrid(int x, int y){
+    public static void changeGBCGrid(int x, int y) {
         GUI.gbc.gridx = x;
         GUI.gbc.gridy = y;
     }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Conjugate!")) {
-            GUI.conjugatedVerb.setText("verb is "+GUI.infinitiveField.getText());
+            GUI.conjugatedVerb.setText("verb is " + GUI.infinitiveField.getText());
             GUI.clickedAmount += 1;
         }
 
-        if (GUI.clickedAmount >= 1){
+        if (GUI.clickedAmount >= 1) {
             // Placeholder Text
             // if (GUI.clickedAmount >= 2){
-            //     GUI.container.remove(GUI.conjugatedLabel);
+            // GUI.container.remove(GUI.conjugatedLabel);
             // }
-            changeGBCGrid(1, 7);
+            changeGBCGrid(1, 8);
             GUI.gbc.ipadx = 0;
             GUI.gbc.ipady = 0;
-            String temp = verbFinder.getConjugation(GUI.infinitiveField.getText(), getPronounClicked(), getTenseClicked());
-            GUI.conjugatedLabel.setText(temp);
-            if (GUI.clickedAmount == 1){
+            String temp = verbFinder.getConjugation(GUI.infinitiveField.getText(), getPronounClicked(),
+                    getTenseClicked());
+            //"                   "+
+            GUI.conjugatedLabel.setText("      "+temp+"      ");
+            GUI.conjugatedLabel.setBorder(blackline);
+            GUI.conjugatedLabel.setMinimumSize(new Dimension(200, 50));
+            if (GUI.clickedAmount == 1) {
                 GUI.container.add(GUI.conjugatedLabel, GUI.gbc);
             }
             // GUI.conjugatedLabel.setText("");
         }
     }
-  }
+}
 
-public class GUI extends JPanel{
+public class GUI extends JPanel {
     /**
      *
      */
@@ -87,19 +99,19 @@ public class GUI extends JPanel{
     public static Integer clickedAmount = 0;
     public static JLabel conjugatedLabel = new JLabel();
 
-    public void parameterSetup(){
+    public void parameterSetup() {
         // Initializations
         JRadioButton temp;
         JLabel tensesLabel = new JLabel();
         JLabel pronounsLabel = new JLabel();
 
-
         // Availible Conjugations
-        String[] tenses = new String[]{"present        ", "past              ", "perfect        ", "pastPerfect", "future          ", "conditional"};
-        String[] pronouns = new String[]{"ich", "du  ", "er  ", "wir", "ihr", "sie"};
+        String[] tenses = new String[] { "present        ", "past              ", "perfect        ", "pastPerfect",
+                "future          ", "conditional" };
+        String[] pronouns = new String[] { "ich", "du  ", "er  ", "wir", "ihr", "sie" };
 
-        //Initial Constraints
-        GridBagConstraints gbctemp1  = new GridBagConstraints();
+        // Initial Constraints
+        GridBagConstraints gbctemp1 = new GridBagConstraints();
         gbctemp1.weightx = 0.5;
 
         // Tense Label
@@ -110,10 +122,10 @@ public class GUI extends JPanel{
 
         // Tense buttons starter grid
         gbctemp1.gridx = -1;
-        gbctemp1.gridy= 0;
+        gbctemp1.gridy = 0;
 
         // Add tense buttons
-        for (String z : tenses){
+        for (String z : tenses) {
             temp = new JRadioButton(z);
             temp.setSelected(z.equals("present        "));
             temp.setActionCommand(z);
@@ -131,10 +143,10 @@ public class GUI extends JPanel{
 
         // Pronoun buttons starter grid
         gbctemp1.gridx = 1;
-        gbctemp1.gridy= 0;
+        gbctemp1.gridy = 0;
 
         // Add pronoun buttons
-        for (String z : pronouns){
+        for (String z : pronouns) {
             temp = new JRadioButton(z);
             temp.setActionCommand(z);
             temp.setSelected(z.equals("ich"));
@@ -145,9 +157,9 @@ public class GUI extends JPanel{
         }
     }
 
-    public void verbInputSetup(){
+    public void verbInputSetup() {
         // Instructions Label
-        GridBagConstraints gbctemp1  = new GridBagConstraints();
+        GridBagConstraints gbctemp1 = new GridBagConstraints();
         JLabel instructions = new JLabel();
         instructions.setText("Type the infinitive:");
         gbctemp1.gridx = 2;
@@ -176,7 +188,7 @@ public class GUI extends JPanel{
         container.add(conjugatedVerb, gbctemp1);
     }
 
-    public GUI(){
+    public GUI() {
         parameterSetup();
         verbInputSetup();
     }
@@ -190,6 +202,6 @@ public class GUI extends JPanel{
         frame.setSize(500, 500);
         frame.setVisible(true);
         verbFinder.setup();
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
