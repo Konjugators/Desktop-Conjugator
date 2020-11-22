@@ -22,6 +22,7 @@ class ButtonListener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
       if (e.getActionCommand().equals("Conjugate!")) {
+          System.out.println("Conjugated!");
       }
     }
   }
@@ -32,6 +33,7 @@ public class GUI extends JPanel{
     static ButtonGroup tenseGroup = new ButtonGroup();
     static ButtonGroup pronounGroup = new ButtonGroup();
     public static JTextField infinitiveField;
+    public static JButton submitButton;
 
     public void parameterSetup(){
         // Initializations
@@ -97,10 +99,24 @@ public class GUI extends JPanel{
         JLabel instructions = new JLabel();
         instructions.setText("Type the infinitive:");
         gbctemp1.gridx = 2;
-        gbctemp1.gridy = 0;
+        gbctemp1.gridy = -1;
         container.add(instructions, gbctemp1);
 
         // Pronouns Entry
+        gbctemp1.gridx = 2;
+        gbctemp1.gridy = 1;
+        infinitiveField = new JTextField();
+        infinitiveField.setColumns(14);
+        container.add(infinitiveField, gbctemp1);
+
+        // Enter button
+        gbctemp1.gridx = 2;
+        gbctemp1.gridy = 3;
+        submitButton = new JButton("Conjugate!");
+        submitButton.addActionListener(new ButtonListener());
+        // submitButton.setSize(30, 30);
+        container.add(submitButton, gbctemp1);
+        
     }
 
     public GUI(){
