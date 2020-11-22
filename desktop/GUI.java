@@ -7,7 +7,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.color.*;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
@@ -27,7 +26,7 @@ class ButtonListener implements ActionListener {
     public int clickedPronoun;
     Border blackline;
     ButtonListener() {
-        blackline = BorderFactory.createLineBorder(Color.BLACK);
+        blackline = BorderFactory.createLineBorder(Color.GREEN);
     }
 
     public static String getTenseClicked() {
