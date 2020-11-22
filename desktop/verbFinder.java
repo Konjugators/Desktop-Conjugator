@@ -1,13 +1,13 @@
 package desktop;
 
 public class verbFinder{
-    
+
     public static String getConjugation(String infinitive, String pronoun, String tense){
         String[] temp = allMaps.map.get(infinitive).split(",");
         for (int i = 0; i < temp.length; i++){
             temp[i] = temp[i].strip();
         }
-        
+
         int index=0;
         switch (tense) {
             case "present":

@@ -1,7 +1,5 @@
 package desktop;
 
-import desktop.verbFinder;
-
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
