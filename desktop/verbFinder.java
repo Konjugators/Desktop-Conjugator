@@ -55,11 +55,14 @@ public class verbFinder{
         return temp[index];
     }
 
-    public static void main(String[] args){
+    public static void setup(){
         allMaps.setup1();
         allMaps.setup2();
         allMaps.setup3();
         allMaps.setup4();
-        System.out.println(getConjugation("fahren", "er", "pastPerfect"));
+    }
+
+    public static void main(String[] args){
+
     }
 }

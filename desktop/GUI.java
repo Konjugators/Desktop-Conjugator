@@ -1,5 +1,7 @@
 package desktop;
 
+import desktop.verbFinder;
+
 import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -61,8 +63,8 @@ class ButtonListener implements ActionListener {
             changeGBCGrid(1, 7);
             GUI.gbc.ipadx = 0;
             GUI.gbc.ipady = 0;
-            
-            GUI.conjugatedLabel.setText(GUI.infinitiveField.getText());
+            String temp = verbFinder.getConjugation(GUI.infinitiveField.getText(), getPronounClicked(), getTenseClicked());
+            GUI.conjugatedLabel.setText(temp);
             if (GUI.clickedAmount == 1){
                 GUI.container.add(GUI.conjugatedLabel, GUI.gbc);
             }
@@ -191,5 +193,6 @@ public class GUI extends JPanel{
         frame.pack();
         frame.setSize(500, 500);
         frame.setVisible(true);
+        verbFinder.setup();
     }
 }
