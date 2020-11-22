@@ -112,6 +112,7 @@ public class GUI extends JPanel{
         gbctemp1.gridx = -1;
         gbctemp1.gridy= 0;
 
+        // Add tense buttons
         for (String z : tenses){
             temp = new JRadioButton(z);
             temp.setSelected(z.equals("present        "));
@@ -122,28 +123,25 @@ public class GUI extends JPanel{
             container.add(temp, gbctemp1);
         }
 
-        // Initial Constraints
-        GridBagConstraints gbctemp2  = new GridBagConstraints();
-        gbctemp2.weightx = 0.5;
-
-        // Pronouns Label
-        gbctemp2.gridx = 1;
-        gbctemp2.gridy = -1;
+        // Pronoun Label
+        gbctemp1.gridx = 1;
+        gbctemp1.gridy = -1;
         pronounsLabel.setText("Pronouns: ");
-        container.add(pronounsLabel, gbctemp2);
+        container.add(pronounsLabel, gbctemp1);
 
-        // Pronoun buttons
-        gbctemp2.gridx = 1;
-        gbctemp2.gridy= 0;
+        // Pronoun buttons starter grid
+        gbctemp1.gridx = 1;
+        gbctemp1.gridy= 0;
 
+        // Add pronoun buttons
         for (String z : pronouns){
             temp = new JRadioButton(z);
             temp.setActionCommand(z);
             temp.setSelected(z.equals("ich"));
             pronounGroup.add(temp);
-            gbctemp2.gridy += 1;
-            gbl.setConstraints(temp, gbctemp2);
-            container.add(temp, gbctemp2);
+            gbctemp1.gridy += 1;
+            gbl.setConstraints(temp, gbctemp1);
+            container.add(temp, gbctemp1);
         }
     }
 
@@ -192,5 +190,6 @@ public class GUI extends JPanel{
         frame.setSize(500, 500);
         frame.setVisible(true);
         verbFinder.setup();
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
     }
 }
