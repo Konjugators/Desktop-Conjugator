@@ -27,29 +27,35 @@ class ButtonListener implements ActionListener {
   }
 
 public class GUI extends JPanel{
-    static GridBagConstraints gbc;
+    static GridBagLayout gbc;
     static Container container;
     static ButtonGroup tenseGroup = new ButtonGroup();
     static ButtonGroup pronounGroup = new ButtonGroup();
+    public static JTextField infinitiveField;
 
     public void parameterSetup(){
         // Initializations
-        GridBagConstraints gbctemp1  = new GridBagConstraints();
         JRadioButton temp;
         JLabel tensesLabel = new JLabel();
         JLabel pronounsLabel = new JLabel();
+
 
         // Availible Conjugations
         String[] tenses = new String[]{"present        ", "past              ", "perfect        ", "pastPerfect", "future          ", "conditional"};
         String[] pronouns = new String[]{"ich", "du  ", "er  ", "wir", "ihr", "sie"};
 
+        //Initial Constraints
+        GridBagConstraints gbctemp1  = new GridBagConstraints();
+        gbctemp1.weightx = 0.5;
+
         // Tense Label
-        gbctemp1.gridx = -6;
+        gbctemp1.gridx = -1;
         gbctemp1.gridy = -1;
+        tensesLabel.setText("Tenses: ");
         container.add(tensesLabel, gbctemp1);
 
         // Tense buttons starter grid
-        gbctemp1.gridx = -6;
+        gbctemp1.gridx = -1;
         gbctemp1.gridy= 0;
 
         for (String z : tenses){
@@ -57,17 +63,22 @@ public class GUI extends JPanel{
             temp.setActionCommand(z);
             tenseGroup.add(temp);
             gbctemp1.gridy += 1;
+            gbc.setConstraints(temp, gbctemp1);
             container.add(temp, gbctemp1);
         }
-        verbInputSetup();
+
+        // Initial Constraints
         GridBagConstraints gbctemp2  = new GridBagConstraints();
+        gbctemp2.weightx = 0.5;
+
         // Pronouns Label
-        gbctemp2.gridx = 11;
+        gbctemp2.gridx = 1;
         gbctemp2.gridy = -1;
+        pronounsLabel.setText("Pronouns: ");
         container.add(pronounsLabel, gbctemp2);
 
         // Pronoun buttons
-        gbctemp2.gridx = 11;
+        gbctemp2.gridx = 1;
         gbctemp2.gridy= 0;
 
         for (String z : pronouns){
@@ -75,33 +86,33 @@ public class GUI extends JPanel{
             temp.setActionCommand(z);
             pronounGroup.add(temp);
             gbctemp2.gridy += 1;
+            gbc.setConstraints(temp, gbctemp2);
             container.add(temp, gbctemp2);
         }
     }
 
     public void verbInputSetup(){
-
+        // Instructions Label
+        GridBagConstraints gbctemp1  = new GridBagConstraints();
         JLabel instructions = new JLabel();
         instructions.setText("Type the infinitive:");
-        gbc.gridx = 5;
-        gbc.gridy = 0;
-        container.add(instructions, gbc);
+        gbctemp1.gridx = 2;
+        gbctemp1.gridy = 0;
+        container.add(instructions, gbctemp1);
 
+        // Pronouns Entry
     }
 
     public GUI(){
-        gbc = new GridBagConstraints();
         parameterSetup();
-        // verbInputSetup();
+        verbInputSetup();
     }
 
-
-
     public static void main(String[] args) {
-        // GUI gui = new GUI();
         JFrame frame = new JFrame();
         container = frame.getContentPane();
-        container.setLayout(new GridBagLayout());
+        gbc = new GridBagLayout();
+        container.setLayout(gbc);
         container.add(new GUI());
         frame.pack();
         frame.setSize(400, 400);
