@@ -4,3 +4,4 @@ class Main {
         desktop.GUI.main(new String[]{""});
     }
 }
+

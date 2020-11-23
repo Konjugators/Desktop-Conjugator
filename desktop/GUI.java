@@ -1,5 +1,6 @@
 package desktop;
 
+// awt imports
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -9,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
 
+// Swing imports
 import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -26,9 +28,11 @@ class ButtonListener implements ActionListener {
     public int clickedPronoun;
     Border blackline;
     ButtonListener() {
-        blackline = BorderFactory.createLineBorder(Color.GREEN);
+        // Initialize border for conjugated verb
+        blackline = BorderFactory.createLineBorder(Color.BLACK);
     }
 
+    // Get radiobutton pronoun
     public static String getTenseClicked() {
         for (Enumeration<AbstractButton> buttons = GUI.tenseGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
@@ -39,6 +43,7 @@ class ButtonListener implements ActionListener {
         return "";
     }
 
+    // Get radiobutton pronoun
     public static String getPronounClicked() {
         for (Enumeration<AbstractButton> buttons = GUI.pronounGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
@@ -49,6 +54,7 @@ class ButtonListener implements ActionListener {
         return "";
     }
 
+    // Quick method to change grid bag constraints
     public static void changeGBCGrid(int x, int y) {
         GUI.gbc.gridx = x;
         GUI.gbc.gridy = y;
@@ -61,10 +67,7 @@ class ButtonListener implements ActionListener {
         }
 
         if (GUI.clickedAmount >= 1) {
-            // Placeholder Text
-            // if (GUI.clickedAmount >= 2){
-            // GUI.container.remove(GUI.conjugatedLabel);
-            // }
+            // Display conjugated verb
             changeGBCGrid(1, 8);
             GUI.gbc.ipadx = 0;
             GUI.gbc.ipady = 0;
@@ -83,9 +86,7 @@ class ButtonListener implements ActionListener {
 }
 
 public class GUI extends JPanel {
-    /**
-     *
-     */
+
     private static final long serialVersionUID = 1L;
     public static GridBagLayout gbl = new GridBagLayout();
     public static GridBagConstraints gbc = new GridBagConstraints();
