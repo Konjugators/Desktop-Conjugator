@@ -66,7 +66,7 @@
                   <gridbag weightx="0.0" weighty="0.0"/>
                 </constraints>
                 <properties>
-                  <text value="Past-perfect"/>
+                  <text value="Pastperfect"/>
                 </properties>
               </component>
               <component id="b1272" class="javax.swing.JRadioButton" binding="Future">
@@ -202,7 +202,7 @@
     </children>
   </grid>
   <buttonGroups>
-    <group name="Deutschtenses">
+    <group name="Deutschtenses" bound="true">
       <member id="e6c94"/>
       <member id="e6c94"/>
       <member id="b1272"/>
@@ -211,7 +211,7 @@
       <member id="1172"/>
       <member id="da0cb"/>
     </group>
-    <group name="Deutschpronouns">
+    <group name="Deutschpronouns" bound="true">
       <member id="abf38"/>
       <member id="abf38"/>
       <member id="ebe68"/>

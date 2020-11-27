@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
+
+import desktop.verbFinder;
 
 public class GUI {
     private JPanel panel;
@@ -22,14 +25,39 @@ public class GUI {
     private JLabel conjugatedVerb;
     private JTextField textField1;
     private JButton DeutschConjugateButton;
+    private ButtonGroup Deutschpronouns;
+    private ButtonGroup Deutschtenses;
+
+    // Get radiobutton pronoun
+    public String getTenseClicked() {
+        for (Enumeration<AbstractButton> buttons = Deutschtenses.getElements(); buttons.hasMoreElements(); ) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+                return button.getText().strip();
+            }
+        }
+        return "";
+    }
+
+    // Get radiobutton pronoun
+    public String getPronounClicked() {
+        for (Enumeration<AbstractButton> buttons = Deutschpronouns.getElements(); buttons.hasMoreElements(); ) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+                return button.getText().strip();
+            }
+        }
+        return "";
+    }
 
     public GUI() {
         $$$setupUI$$$();
+        verbFinder.setup();
         DeutschConjugateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if (actionEvent.getActionCommand().equals("Konjugier!")) {
-                    conjugatedVerb.setText("verb is " + textField1.getText());
+                    conjugatedVerb.setText(verbFinder.getConjugation(textField1.getText(), getPronounClicked(), getTenseClicked()));
                 }
             }
         });
@@ -91,7 +119,7 @@ public class GUI {
         gbc.anchor = GridBagConstraints.WEST;
         DeutschPanel.add(Perfect, gbc);
         PastPerfect = new JRadioButton();
-        PastPerfect.setText("Past-perfect");
+        PastPerfect.setText("Pastperfect");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -195,23 +223,22 @@ public class GUI {
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridBagLayout());
         DeutschTab.addTab("Untitled", panel1);
-        ButtonGroup buttonGroup;
-        buttonGroup = new ButtonGroup();
-        buttonGroup.add(Conditional);
-        buttonGroup.add(Conditional);
-        buttonGroup.add(Future);
-        buttonGroup.add(Past);
-        buttonGroup.add(Present);
-        buttonGroup.add(Perfect);
-        buttonGroup.add(PastPerfect);
-        buttonGroup = new ButtonGroup();
-        buttonGroup.add(ich);
-        buttonGroup.add(ich);
-        buttonGroup.add(sie);
-        buttonGroup.add(er);
-        buttonGroup.add(wir);
-        buttonGroup.add(du);
-        buttonGroup.add(ihr);
+        Deutschtenses = new ButtonGroup();
+        Deutschtenses.add(Conditional);
+        Deutschtenses.add(Conditional);
+        Deutschtenses.add(Future);
+        Deutschtenses.add(Past);
+        Deutschtenses.add(Present);
+        Deutschtenses.add(Perfect);
+        Deutschtenses.add(PastPerfect);
+        Deutschpronouns = new ButtonGroup();
+        Deutschpronouns.add(ich);
+        Deutschpronouns.add(ich);
+        Deutschpronouns.add(sie);
+        Deutschpronouns.add(er);
+        Deutschpronouns.add(wir);
+        Deutschpronouns.add(du);
+        Deutschpronouns.add(ihr);
     }
 
     /**
@@ -223,6 +250,7 @@ public class GUI {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("GUI");
+        frame.setMinimumSize(new Dimension(500, 500));
         frame.setContentPane(new GUI().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
