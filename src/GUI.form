@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI">
+  <grid id="27dc6" binding="panel" layout-manager="GridBagLayout">
+    <constraints>
+      <xy x="20" y="20" width="515" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="29bea" binding="DeutschTab">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+          <gridbag weightx="1.0" weighty="1.0"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="d0aa0" binding="DeutschPanel" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title="DeutschTab"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <hspacer id="107ae">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+              </hspacer>
+              <component id="f98e8" class="javax.swing.JRadioButton" binding="Present">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <selected value="true"/>
+                  <text value="Present"/>
+                </properties>
+              </component>
+              <component id="6013d" class="javax.swing.JRadioButton" binding="Past">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Past"/>
+                </properties>
+              </component>
+              <component id="1172" class="javax.swing.JRadioButton" binding="Perfect">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Perfect"/>
+                </properties>
+              </component>
+              <component id="da0cb" class="javax.swing.JRadioButton" binding="PastPerfect">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Past-perfect"/>
+                </properties>
+              </component>
+              <component id="b1272" class="javax.swing.JRadioButton" binding="Future">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Future"/>
+                </properties>
+              </component>
+              <component id="e6c94" class="javax.swing.JRadioButton" binding="Conditional">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="Conditional"/>
+                </properties>
+              </component>
+              <component id="abf38" class="javax.swing.JRadioButton" binding="ich">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <selected value="true"/>
+                  <text value="ich"/>
+                </properties>
+              </component>
+              <component id="55a50" class="javax.swing.JRadioButton" binding="du">
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="du"/>
+                </properties>
+              </component>
+              <component id="a38b5" class="javax.swing.JRadioButton" binding="er">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="er"/>
+                </properties>
+              </component>
+              <component id="4c9c7" class="javax.swing.JRadioButton" binding="wir">
+                <constraints>
+                  <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="wir"/>
+                </properties>
+              </component>
+              <component id="e3486" class="javax.swing.JRadioButton" binding="ihr">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="ihr"/>
+                </properties>
+              </component>
+              <component id="ebe68" class="javax.swing.JRadioButton" binding="sie">
+                <constraints>
+                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <text value="sie"/>
+                </properties>
+              </component>
+              <component id="6a91b" class="javax.swing.JToolBar$Separator">
+                <constraints>
+                  <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="d1685" class="javax.swing.JLabel" binding="conjugatedVerb">
+                <constraints>
+                  <grid row="5" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <autoscrolls value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="e7808" class="javax.swing.JButton" binding="DeutschConjugateButton">
+                <constraints>
+                  <grid row="3" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <rolloverEnabled value="false"/>
+                  <selected value="false"/>
+                  <text value="Konjugier!"/>
+                </properties>
+              </component>
+              <component id="2238f" class="javax.swing.JTextField" binding="textField1">
+                <constraints>
+                  <grid row="1" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                  <gridbag weightx="0.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <columns value="2"/>
+                  <dragEnabled value="false"/>
+                  <preferredSize width="24" height="24"/>
+                </properties>
+                <clientProperties>
+                  <html.disable class="java.lang.Boolean" value="false"/>
+                </clientProperties>
+              </component>
+            </children>
+          </grid>
+          <grid id="b71ae" layout-manager="GridBagLayout">
+            <constraints>
+              <tabbedpane title="Untitled"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="Deutschtenses">
+      <member id="e6c94"/>
+      <member id="e6c94"/>
+      <member id="b1272"/>
+      <member id="6013d"/>
+      <member id="f98e8"/>
+      <member id="1172"/>
+      <member id="da0cb"/>
+    </group>
+    <group name="Deutschpronouns">
+      <member id="abf38"/>
+      <member id="abf38"/>
+      <member id="ebe68"/>
+      <member id="a38b5"/>
+      <member id="4c9c7"/>
+      <member id="55a50"/>
+      <member id="e3486"/>
+    </group>
+  </buttonGroups>
+</form>
