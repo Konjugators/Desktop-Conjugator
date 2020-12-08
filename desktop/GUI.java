@@ -4,6 +4,7 @@ package desktop;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -19,9 +20,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.Border;
+
 
 class ButtonListener implements ActionListener {
     public String clickedTense;
@@ -78,7 +81,7 @@ class ButtonListener implements ActionListener {
             GUI.conjugatedLabel.setBorder(blackline);
             GUI.conjugatedLabel.setMinimumSize(new Dimension(200, 50));
             if (GUI.clickedAmount == 1) {
-                GUI.container.add(GUI.conjugatedLabel, GUI.gbc);
+                GUI.german.add(GUI.conjugatedLabel, GUI.gbc);
             }
             // GUI.conjugatedLabel.setText("");
         }
@@ -98,6 +101,9 @@ public class GUI extends JPanel {
     public static JLabel conjugatedVerb;
     public static Integer clickedAmount = 0;
     public static JLabel conjugatedLabel = new JLabel();
+    public static JPanel paneller = new JPanel();
+    public static JTabbedPane pane = new JTabbedPane();
+    public static JPanel german = new JPanel();
 
     public void parameterSetup() {
         // Initializations
@@ -118,7 +124,7 @@ public class GUI extends JPanel {
         gbctemp1.gridx = -1;
         gbctemp1.gridy = -1;
         tensesLabel.setText("Tenses: ");
-        container.add(tensesLabel, gbctemp1);
+        german.add(tensesLabel, gbctemp1);
 
         // Tense buttons starter grid
         gbctemp1.gridx = -1;
@@ -132,14 +138,14 @@ public class GUI extends JPanel {
             tenseGroup.add(temp);
             gbctemp1.gridy += 1;
             gbl.setConstraints(temp, gbctemp1);
-            container.add(temp, gbctemp1);
+            german.add(temp, gbctemp1);
         }
 
         // Pronoun Label
         gbctemp1.gridx = 1;
         gbctemp1.gridy = -1;
         pronounsLabel.setText("Pronouns: ");
-        container.add(pronounsLabel, gbctemp1);
+        german.add(pronounsLabel, gbctemp1);
 
         // Pronoun buttons starter grid
         gbctemp1.gridx = 1;
@@ -153,7 +159,7 @@ public class GUI extends JPanel {
             pronounGroup.add(temp);
             gbctemp1.gridy += 1;
             gbl.setConstraints(temp, gbctemp1);
-            container.add(temp, gbctemp1);
+            german.add(temp, gbctemp1);
         }
     }
 
@@ -164,31 +170,33 @@ public class GUI extends JPanel {
         instructions.setText("Type the infinitive:");
         gbctemp1.gridx = 2;
         gbctemp1.gridy = -1;
-        container.add(instructions, gbctemp1);
+        german.add(instructions, gbctemp1);
 
         // Pronouns Entry
         gbctemp1.gridx = 2;
         gbctemp1.gridy = 1;
         infinitiveField = new JTextField();
         infinitiveField.setColumns(14);
-        container.add(infinitiveField, gbctemp1);
+        german.add(infinitiveField, gbctemp1);
 
         // Enter button
         gbctemp1.gridx = 2;
         gbctemp1.gridy = 3;
         submitButton = new JButton("Conjugate!");
         submitButton.addActionListener(new ButtonListener());
-        container.add(submitButton, gbctemp1);
+        german.add(submitButton, gbctemp1);
 
         // Conjugated Verb placement
         gbctemp1.gridx = 2;
         gbctemp1.gridy = 4;
         conjugatedVerb = new JLabel();
         conjugatedVerb.setText("");
-        container.add(conjugatedVerb, gbctemp1);
+        german.add(conjugatedVerb, gbctemp1);
     }
 
     public GUI() {
+        german.setLayout(gbl);
+        pane.addTab("HOHO", german);
         parameterSetup();
         verbInputSetup();
     }
@@ -196,8 +204,22 @@ public class GUI extends JPanel {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         container = frame.getContentPane();
-        container.setLayout(gbl);
-        container.add(new GUI());
+        // JPanel pannelllll = new JPanel();
+        pane = new JTabbedPane();
+        paneller = new JPanel();
+
+        // pannelllll.add(pane);
+
+        paneller.setLayout(gbl);
+        // paneller.add(pane);
+        
+        paneller.add(new GUI());
+        // container.add(pane);
+
+
+        frame.add(paneller);
+        frame.add(pane);
+
         frame.pack();
         frame.setSize(500, 500);
         frame.setVisible(true);
